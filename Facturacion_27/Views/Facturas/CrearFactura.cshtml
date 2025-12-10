@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Crear Factura";
+}
+
+<h2>Crear Factura</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div style="color:red">@ViewBag.Error</div>
+}
+
+<form asp-action="CrearFactura" method="post">
+    <div>
+        <label>Cliente Id:</label>
+        <input type="number" name="clienteId" required />
+    </div>
+
+    <h3>Productos</h3>
+    <table id="tablaProductos" border="1">
+        <tr>
+            <th>Producto Id</th>
+            <th>Cantidad</th>
+            <th>Acción</th>
+        </tr>
+        <tr>
+            <td><input type="number" name="productos" required /></td>
+            <td><input type="number" name="cantidades" required /></td>
+            <td><button type="button" onclick="eliminarFila(this)">Eliminar</button></td>
+        </tr>
+    </table>
+    <button type="button" onclick="agregarFila()">Agregar Producto</button>
+    <br /><br />
+    <button type="submit">Crear Factura</button>
+</form>
+
+<script>
+    function agregarFila() {
+        var tabla = document.getElementById("tablaProductos");
+        var fila = tabla.insertRow();
+        fila.innerHTML = `
+            <td><input type="number" name="productos" required /></td>
+            <td><input type="number" name="cantidades" required /></td>
+            <td><button type="button" onclick="eliminarFila(this)">Eliminar</button></td>
+        `;
+    }
+
+    function eliminarFila(btn) {
+        var fila = btn.parentNode.parentNode;
+        fila.parentNode.removeChild(fila);
+    }
+</script>

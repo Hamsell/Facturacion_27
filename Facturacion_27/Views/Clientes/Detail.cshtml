@@ -1,0 +1,14 @@
+﻿@model Facturacion_27.Models.Cliente
+
+<h2>Detalle del Cliente</h2>
+
+<div>
+    <p><strong>Nombre:</strong> @Model.Nombre</p>
+    <p><strong>RUC/NIT:</strong> @Model.RucNit</p>
+    <p><strong>Direccion:</strong> @Model.Direccion</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+<a asp-action="Index">Volver al listado</a> |
+<a asp-action="Delete" asp-route-id="@Model.Id">Eliminar</a>

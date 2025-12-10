@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Facturacion_27.Models.Cliente>
+
+<h2>Clientes</h2>
+
+<a asp-action="Create">Crear Nuevo Cliente</a>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>RUC/NIT</th>
+        <th>Direccion</th>
+        <th>Email</th>
+        <th>Acciones</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.RucNit</td>
+            <td>@item.Direccion</td>
+            <td>@item.Email</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Facturacion_27.Models.Factura>
+
+<h2>Listado de Facturas</h2>
+
+<a asp-action="CrearFactura">Crear Nueva Factura</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Fecha</th>
+        <th>Subtotal</th>
+        <th>Impuesto</th>
+        <th>Total</th>
+        <th>Acciones</th>
+    </tr>
+    @foreach (var f in Model)
+    {
+        <tr>
+            <td>@f.Id</td>
+            <td>@f.Cliente.Nombre</td>
+            <td>@f.Fecha.ToString("dd/MM/yyyy")</td>
+            <td>@f.Subtotal</td>
+            <td>@f.Impuesto</td>
+            <td>@f.Total</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@f.Id">Ver</a>
+
+
+            </td>
+        </tr>
+    }
+</table>

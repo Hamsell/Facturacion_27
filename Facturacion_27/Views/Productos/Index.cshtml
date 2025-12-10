@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Facturacion_27.Models.Producto>
+
+<h2>Productos</h2>
+
+<a asp-action="Create">Crear Nuevo Producto</a>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Precio Unitario</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.PrecioUnitario</td>
+            <td>@item.Stock</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+            </td>
+        </tr>
+    }
+</table>

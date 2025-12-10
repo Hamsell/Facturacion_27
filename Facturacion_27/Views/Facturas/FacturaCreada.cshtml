@@ -1,0 +1,31 @@
+﻿@model Facturacion_27.Models.Factura
+
+<h2>Factura Creada</h2>
+
+<p><strong>Cliente Id:</strong> @Model.ClienteId</p>
+<p><strong>Fecha:</strong> @Model.Fecha</p>
+<p><strong>Subtotal:</strong> @Model.Subtotal</p>
+<p><strong>Impuesto:</strong> @Model.Impuesto</p>
+<p><strong>Total:</strong> @Model.Total</p>
+
+
+<h3>Items</h3>
+<table border="1">
+    <tr>
+        <th>Producto Id</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.ProductoId</td>
+            <td>@item.Cantidad</td>
+            <td>@item.PrecioUnitario</td>
+            <td>@item.LineSubtotal</td>
+        </tr>
+    }
+</table>
+
+<a href="@Url.Action("CrearFactura")">Crear otra factura</a>

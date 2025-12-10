@@ -1,0 +1,15 @@
+﻿@model Facturacion_27.Models.Producto
+
+<h2>Eliminar Producto</h2>
+
+<p>¿Está seguro que desea eliminar este producto?</p>
+
+<p><strong>@Model.Nombre</strong> - Precio: @Model.PrecioUnitario - Stock: @Model.Stock</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Eliminar</button>
+</form>
+
+<a asp-action="Index">Cancelar</a>
+
